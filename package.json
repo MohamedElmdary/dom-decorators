@@ -1,0 +1,25 @@
+{
+  "name": "dom-decorators",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "parcel ./example/index.html -p 8080",
+    "build": "webpack"
+  },
+  "description": "dom-decorators is a way of manipulate dom using es6 decorators for small project :\")",
+  "main": "index.ts",
+  "repository": "https://github.com/MohamedElmdary/dom-decorators.git",
+  "author": "MohamedElmdary",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@types/node": "^12.7.2",
+    "babel-loader": "^8.0.6",
+    "parcel-bundler": "^1.12.3",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.3",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7"
+  }
+}
