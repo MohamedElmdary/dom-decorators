@@ -4,6 +4,7 @@ export function getElement<T = Element>(
   key: string,
   toArr: boolean = false
 ): T {
+  method = method.bind(document);
   if (typeof selector !== 'string') {
     throw new Error(`'${selector}' is not assign to ${key}<string>.`);
   }

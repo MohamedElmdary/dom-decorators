@@ -3,7 +3,13 @@
 import { getMeta, Argument, registerMeta } from '../meta';
 
 function createMethodDecorator<T = any, U = any>(
-  fn: (original: Function, meta: Argument[], props: T) => U,
+  fn: (
+    target: any,
+    method: string | symbol,
+    original: Function,
+    meta: Argument[],
+    props: T
+  ) => U,
   metaToDefine: { [key: string]: any } = {}
 ) {
   return function(props?: T): MethodDecorator {
@@ -17,7 +23,7 @@ function createMethodDecorator<T = any, U = any>(
       for (const m in metaToDefine) {
         registerMeta(key, m, metaToDefine[m]);
       }
-      fn(original, meta, props as T);
+      fn(target, key, original, meta, props as T);
     };
   };
 }

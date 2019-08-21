@@ -1,22 +1,25 @@
 /* @dom example */
 
-import { createPrameterDecorator, createMethodDecorator } from '../src';
-
-const Event = createPrameterDecorator(() => {
-  return 0;
-});
-
-const siblings = createPrameterDecorator(() => {
-  return 1;
-});
-
-const log = createMethodDecorator(() => {
-  return null;
-});
+import {
+  ById,
+  EventListener,
+  Siblings,
+  Target,
+  Event,
+  ByQuerySelectorAll,
+  ByIdP
+} from '../src';
 
 class App {
-  @log()
-  onclick(@Event() e, @siblings() s) {}
+  @ByQuerySelectorAll('#list > li') list;
+
+  @EventListener({
+    events: 'click',
+    elements: 'list'
+  })
+  addListeners(@Event() e, @Siblings() s, @Target() t, @ByIdP('btn') btn) {
+    console.log({ e, s, t, btn });
+  }
 }
 
-console.log(App.prototype);
+// console.log(App.prototype);

@@ -37,10 +37,11 @@ export function registerGlobalMeta<TMetaResolver = any>(
 }
 
 export function resolveMeta<TMetaResolver = any>(
-  key: string | symbol,
-  method: string
+  method: string | symbol,
+  key: string | symbol
 ): TMetaResolver {
   key = key.toString();
+  method = method.toString();
   if (!META[method]) {
     throw new Error(`${method}() has no defined any meta!`);
   }
@@ -53,9 +54,5 @@ export function resolveMeta<TMetaResolver = any>(
 export function resolveGlobalMeta<TMetaResolver = any>(
   key: string | symbol
 ): TMetaResolver {
-  key = key.toString();
-  if (!META[GLOBAL][key]) {
-    throw new Error(`${key} meta was never defined!`);
-  }
-  return META[GLOBAL][key] as TMetaResolver;
+  return META[GLOBAL][key.toString()] ? META[GLOBAL][key.toString()] : key;
 }

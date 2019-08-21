@@ -13,6 +13,7 @@ export const ByQuerySelectorAll = createPropertyDecorator<string>(selector => {
   return getElement<Array<Element>>(
     selector,
     document.querySelectorAll,
-    'selector'
+    'selector',
+    true
   );
 });
