@@ -11,11 +11,11 @@ export const META: {
 };
 
 export function registerMeta<TMetaResolver = any>(
-  key: string | symbol,
-  value: TMetaResolver,
-  method: string
+  method: string | symbol,
+  key: string,
+  value: TMetaResolver
 ) {
-  key = key.toString();
+  method = method.toString();
   if (!META[method]) {
     META[method] = {};
   }
